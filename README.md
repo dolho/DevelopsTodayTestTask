@@ -13,14 +13,16 @@ Additionally the application uses docker-compose.
 For managing periodical tasks (deleting upvotes everyday), django admin panel is used  
 
 # How to run the application
-
+1) Perfom command  ```git clone https://github.com/dolho/DevelopsTodayTestTask.git```
 1) Activate virtual environment
 2) Install dependencies with
 ```pip install -r requirements.txt```  
 3) Create directory ```.env``` and file ```.dev-sample``` in it  
-```mkdir .env```  
-```cd .envtouch```  
-```.env```  
+```
+mkdir .env  
+cd .env  
+touch .env  
+```  
 4) Add following text to the .env file
 ```
 SQL_ENGINE=django.db.backends.postgresql
@@ -36,5 +38,5 @@ CELERY_BACKEND=rpc://
 5) Run 
 ```sudo docker-compose build```
 6) Run 
-```docker-compose up```  
+```sudo docker-compose up```  
 By default, the application would run on port **8765**
