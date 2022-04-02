@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from datetime import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -8,8 +9,7 @@ from datetime import datetime
 class Post(models.Model):
     title = models.CharField(max_length=200)
     link = models.URLField()
-    creation_date = models.DateTimeField(default=datetime.now())
-    # amount_of_upvotes = models.IntegerField(default=0)
+    creation_date = models.DateTimeField(default=timezone.now)
     author_name = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
@@ -29,7 +29,7 @@ class Comment(models.Model):
         settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL
     )
     content = models.TextField()
-    creation_date = models.DateTimeField(default=datetime.now())
+    creation_date = models.DateTimeField(default=timezone.now)
 
 
 class Upvotes(models.Model):

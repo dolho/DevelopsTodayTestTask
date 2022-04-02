@@ -20,12 +20,6 @@ class PostSerializer(serializers.ModelSerializer):
         validated_data["author_name"] = self.context["request"].user
         return super(PostSerializer, self).create(validated_data)
 
-    # def get_is_fan(self, obj) -> bool:
-    #     """Check if a `request.user` has liked this tweet (`obj`).
-    #     """
-    #     user = self.context.get('request').user
-    #     return likes_services.is_fan(obj, user)
-
 
 class UpvotesSerializer(serializers.ModelSerializer):
     class Meta:
