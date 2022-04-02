@@ -7,12 +7,9 @@ This app implements an API for signup, getting and refreshing JWT, CRUD for Post
 - Django Rest Framework
 - Django Rest Framework Nested Routers
 - Celery
-- Django Celery Beat 
-Additionally the application uses docker-compose.
-For managing periodical tasks, django admin panel is used
-
-
-
+- Django Celery Beat  
+Additionally the application uses docker-compose.  
+For managing periodical tasks, django admin panel is used  
 
 # How to run the application
 
