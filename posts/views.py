@@ -11,10 +11,6 @@ from rest_framework import status
 
 
 class PostViewSet(viewsets.ModelViewSet):
-    """
-    This endpoint allows to perfom CRUD operations over Posts
-    """
-
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
@@ -32,10 +28,6 @@ class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-
-    # def get_queryset(self):
-    #     print(self.kwargs)
-    #     return Comment.objects.filter(parent_post=post)
 
     def create(self, request, *args, **kwargs):
         try:
