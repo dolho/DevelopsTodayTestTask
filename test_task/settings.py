@@ -173,16 +173,11 @@ SIMPLE_JWT = {
 }
 
 # Celery Section
-# CELERY_SEND_EVENTS = True
-# CELERY_SEND_SENT_EVENT = True
-# CELERY_CACHE_BACKEND = 'django-cache'
-# CELERY_RESULT_BACKEND = 'django-db'
+
 
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND")
 
-
-# CELERY_BROKER_PORT = 5772
 
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
