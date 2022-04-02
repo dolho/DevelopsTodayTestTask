@@ -38,4 +38,3 @@ CELERY_BACKEND=rpc://
 6) Run 
 ```docker-compose up```  
 By default, the application would run on port **8765**
-[]
