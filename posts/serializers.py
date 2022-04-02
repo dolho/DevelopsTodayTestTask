@@ -38,7 +38,7 @@ class UpvotesSerializer(serializers.ModelSerializer):
         """
         upvote = Upvotes.objects.filter(post=data["post"], user=data["user"])
         if upvote:
-            raise serializers.ValidationError("The post is already" " upvoted by you")
+            raise serializers.ValidationError("The post is already " "upvoted by you")
         return data
 
 

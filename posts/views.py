@@ -6,6 +6,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.shortcuts import get_object_or_404
+from django.http import Http404
+from rest_framework import status
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -36,7 +38,10 @@ class CommentViewSet(viewsets.ModelViewSet):
     #     return Comment.objects.filter(parent_post=post)
 
     def create(self, request, *args, **kwargs):
-        post = get_object_or_404(Post, pk=self.kwargs["coments_pk"])
+        try:
+            post = get_object_or_404(Post, pk=self.kwargs["coments_pk"])
+        except Http404:
+            return Response({"status": "not found"}, status=status.HTTP_404_NOT_FOUND)
         serializer = CommentSerializer(
             data={
                 "content": request.data.get("content"),

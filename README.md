@@ -34,7 +34,7 @@ CELERY_BROKER=amqp://rabbit:5672//
 CELERY_BACKEND=rpc://
 ```
 5) Run 
-```docker-compose build```
+```sudo docker-compose build```
 6) Run 
 ```docker-compose up```  
 By default, the application would run on port **8765**

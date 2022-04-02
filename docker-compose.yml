@@ -1,3 +1,5 @@
+version: "3"
+
 services:
   web:
     build:
@@ -32,7 +34,7 @@ services:
     image: "rabbitmq:3-management"
     ports:
       - "5772:5672"
-      - "15672:15672"
+      - "15772:15672"
     volumes:
       - 'rabbitmq_data:/data'
 
