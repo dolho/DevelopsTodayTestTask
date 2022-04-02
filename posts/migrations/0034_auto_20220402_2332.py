@@ -7,18 +7,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0033_auto_20220402_2323'),
+        ("posts", "0033_auto_20220402_2323"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='comment',
-            name='creation_date',
-            field=models.DateTimeField(default=datetime.datetime(2022, 4, 2, 23, 32, 58, 143447)),
+            model_name="comment",
+            name="creation_date",
+            field=models.DateTimeField(
+                default=datetime.datetime(2022, 4, 2, 23, 32, 58, 143447)
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='creation_date',
+            model_name="post",
+            name="creation_date",
             field=models.DateTimeField(default=datetime.datetime.now),
         ),
     ]

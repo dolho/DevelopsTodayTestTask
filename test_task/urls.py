@@ -19,6 +19,10 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from test_task.views import json404
+
+
+handler404 = json404
 
 urlpatterns = [
     path("admin/", admin.site.urls),

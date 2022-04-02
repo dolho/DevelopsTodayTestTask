@@ -7,18 +7,18 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0035_alter_comment_creation_date'),
+        ("posts", "0035_alter_comment_creation_date"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='comment',
-            name='creation_date',
+            model_name="comment",
+            name="creation_date",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='creation_date',
+            model_name="post",
+            name="creation_date",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]
