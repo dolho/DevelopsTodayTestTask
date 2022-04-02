@@ -6,6 +6,7 @@ from .models import Upvotes
 def reset_upvotes(*args, **kwargs):
     Upvotes.objects.all().delete()
 
+
 @shared_task(name="log_message")
 def reset_upvotes(*args, **kwargs):
     print("Message logged")

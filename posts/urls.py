@@ -9,10 +9,10 @@ from posts import views
 # router.register(r"posts/comments", views.PostViewSet, basename="comments")
 
 router = SimpleRouter()
-router.register(r'posts', views.PostViewSet)
+router.register(r"posts", views.PostViewSet)
 
-comments_router = NestedSimpleRouter(router, r'posts', lookup='coments')
-comments_router.register(r'comments', views.CommentViewSet, basename='post-comments')
+comments_router = NestedSimpleRouter(router, r"posts", lookup="coments")
+comments_router.register(r"comments", views.CommentViewSet, basename="post-comments")
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [

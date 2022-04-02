@@ -53,7 +53,8 @@ class CommentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data["author_name"] = self.context["request"].user
         if validated_data["author_name"].is_anonymous:
-            validation_error = serializers.ValidationError("You should be logged in to post "
-                                              "comments ", code=401)
+            validation_error = serializers.ValidationError(
+                "You should be logged in to post " "comments ", code=401
+            )
             raise
         return super(CommentSerializer, self).create(validated_data)
