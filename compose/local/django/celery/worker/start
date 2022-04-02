@@ -3,4 +3,4 @@
 set -o errexit
 set -o nounset
 
-celery -A test_task worker -l INFO
+celery -A test_task worker -l INFO --broker="${CELERY_BROKER_URL}"

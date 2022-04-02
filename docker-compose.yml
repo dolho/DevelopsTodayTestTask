@@ -33,7 +33,7 @@ services:
   rabbit:
     image: "rabbitmq:3-management"
     ports:
-      - "5772:5672"
+      - "5772:5674"
       - "15772:15672"
     volumes:
       - 'rabbitmq_data:/data'

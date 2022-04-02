@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 worker_ready() {
-    celery -A test_task inspect ping
+    celery -A test_task inspect ping --broker="${CELERY_BROKER_URL}"
 }
 
 until worker_ready; do

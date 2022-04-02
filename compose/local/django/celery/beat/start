@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 
 rm -f './celerybeat.pid'
-celery -A test_task beat -l INFO
+celery -A test_task beat -l INFO --broker="${CELERY_BROKER_URL}"
