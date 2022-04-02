@@ -21,9 +21,9 @@ For managing periodical tasks (deleting upvotes everyday), django admin panel is
 ```
 mkdir .env  
 cd .env  
-touch .env  
+touch .dev-sample  
 ```  
-4) Add following text to the .env file
+4) Add following text to the .dev-sample file
 ```
 SQL_ENGINE=django.db.backends.postgresql
 SQL_DATABASE=postgres
