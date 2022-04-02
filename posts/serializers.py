@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from posts.models import Post, Comment, Upvotes
-from rest_framework import status
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -46,8 +45,8 @@ class UpvotesSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ["author_name", "content", "creation_date"]
-        read_only_fields = ["author_name", "creation_date"]
+        fields = ["author_name", "content", "parent_post", "creation_date"]
+        read_only_fields = ["author_name", "creation_date", "parent_post"]
         depth = 0
 
     def create(self, validated_data):
@@ -56,5 +55,5 @@ class CommentSerializer(serializers.ModelSerializer):
             validation_error = serializers.ValidationError(
                 "You should be logged in to post " "comments ", code=401
             )
-            raise
+            raise validation_error
         return super(CommentSerializer, self).create(validated_data)

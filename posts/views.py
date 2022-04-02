@@ -5,6 +5,7 @@ from posts.permissions import IsOwnerOrReadOnly
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django.shortcuts import get_object_or_404
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -29,3 +30,19 @@ class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+    # def get_queryset(self):
+    #     print(self.kwargs)
+    #     return Comment.objects.filter(parent_post=post)
+
+    def create(self, request, *args, **kwargs):
+        post = get_object_or_404(Post, pk=self.kwargs["coments_pk"])
+        serializer = CommentSerializer(
+            data={
+                "content": request.data.get("content"),
+            },
+            context={"request": request},
+        )
+        serializer.is_valid(raise_exception=True)
+        comment = serializer.save(parent_post=post)
+        return Response({"id": comment.id, "content": comment.content})

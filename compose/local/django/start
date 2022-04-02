@@ -6,5 +6,5 @@ set -o nounset
 
 python manage.py makemigrations
 python manage.py migrate
-gunicorn  test_task.wsgi
+python manage.py runserver 0.0.0.0:8765
 
