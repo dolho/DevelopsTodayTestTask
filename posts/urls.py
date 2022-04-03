@@ -6,7 +6,7 @@ from posts import views
 router = SimpleRouter()
 router.register("posts", views.PostViewSet)
 
-comments_router = NestedSimpleRouter(router, "posts", lookup="coments")
+comments_router = NestedSimpleRouter(router, "posts", lookup="posts")
 comments_router.register("comments", views.CommentViewSet, basename="post-comments")
 
 urlpatterns = [

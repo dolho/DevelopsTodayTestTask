@@ -29,9 +29,13 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
+    def get_queryset(self):
+        user = self.request.user
+        return Comment.objects.filter(parent_post=self.kwargs["posts_pk"])
+
     def create(self, request, *args, **kwargs):
         try:
-            post = get_object_or_404(Post, pk=self.kwargs["coments_pk"])
+            post = get_object_or_404(Post, pk=self.kwargs["posts_pk"])
         except Http404:
             return Response({"status": "not found"}, status=status.HTTP_404_NOT_FOUND)
         serializer = CommentSerializer(
